@@ -2,7 +2,7 @@
     'use strict';
 
     
-    let streamer = new Streamer();
+    let streamer = new ServerStreamer();
     let button = document.getElementById('pauseButton');
     button.addEventListener('click', () => streamer.Pause());
     

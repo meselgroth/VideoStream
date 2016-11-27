@@ -94,6 +94,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="BinaryMediaTypeFormatter.cs" />
     <Compile Include="Controllers\ICacheService.cs" />
     <Compile Include="Controllers\StreamController.cs" />
     <Compile Include="Global.asax.cs">

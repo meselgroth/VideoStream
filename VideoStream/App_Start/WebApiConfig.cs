@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using AngularJSWebApiEmpty;
 
 namespace VideoStream
 {
@@ -10,7 +11,7 @@ namespace VideoStream
         public static void Register(HttpConfiguration config)
         {
             // Web API configuration and services
-
+            config.Formatters.Add(new BinaryMediaTypeFormatter());
             // Web API routes
             config.MapHttpAttributeRoutes();
 
