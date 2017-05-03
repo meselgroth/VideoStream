@@ -7,5 +7,5 @@
     button.addEventListener('click', () => streamer.Pause());
     
     let watcher = document.getElementById('watch');
-    setInterval(() => streamer.Receive(watcher), 1000);
+    streamer.Receive(watcher);
 })();

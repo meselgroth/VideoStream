@@ -22,17 +22,25 @@ namespace AngularJSWebApiEmpty.Controllers
 
         public HttpResponseMessage Get()
         {
-            if (Request.Headers.Range!=null)
-            {
-                var partialResponse = Request.CreateResponse(HttpStatusCode.PartialContent);
-                partialResponse.Content = new ByteRangeStreamContent(new MemoryStream( _cacheService.GetStreamContent()), Request.Headers.Range, _mediaTypeHeaderValue);
-                return partialResponse;
-            }
             var responseMessage = new HttpResponseMessage(HttpStatusCode.OK);
             responseMessage.Content = new ByteArrayContent(_cacheService.GetStreamContent());
             responseMessage.Content.Headers.ContentType = _mediaTypeHeaderValue;
             return responseMessage;
         }
+
+        //public HttpResponseMessage Get()
+        //{
+        //    if (Request.Headers.Range != null)
+        //    {
+        //        var partialResponse = Request.CreateResponse(HttpStatusCode.PartialContent);
+        //        partialResponse.Content = new ByteRangeStreamContent(new MemoryStream(_cacheService.GetStreamContent()), Request.Headers.Range, _mediaTypeHeaderValue);
+        //        return partialResponse;
+        //    }
+        //    var responseMessage = new HttpResponseMessage(HttpStatusCode.OK);
+        //    responseMessage.Content = new ByteArrayContent(_cacheService.GetStreamContent());
+        //    responseMessage.Content.Headers.ContentType = _mediaTypeHeaderValue;
+        //    return responseMessage;
+        //}
 
         public void Post([FromBody]byte[] value)
         {
